@@ -1,0 +1,22 @@
+.adm-swiper {
+    height: 77%;
+
+    .adm-auto-center {
+        margin: 0.75rem 0;
+    }
+
+    .artist-name {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    .artist-title, 
+    .artist-name {
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .artist-date {
+        font-style: italic;
+    }
+}

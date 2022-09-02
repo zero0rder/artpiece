@@ -1,0 +1,13 @@
+@use './imports/app';
+@use './imports/navbar';
+@use './imports/landing';
+
+html, 
+body, 
+#root {
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+}
