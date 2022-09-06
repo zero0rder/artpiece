@@ -6,7 +6,7 @@ import Landing from './components/pages/Landing';
 import SearchPage from './components/navigation/Search';
 import Details from './components/pages/Details';
 import Collections from './components/pages/Collections';
-import './sass/index.scss'
+import './sass/site.scss'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
