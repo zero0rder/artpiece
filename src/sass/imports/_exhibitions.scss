@@ -1,0 +1,22 @@
+.exhibitions-page {
+    background-color: #eee;
+    padding: 1rem 0;
+
+    .adm-card {
+        margin: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .exhibit-card-body {
+            h2 {
+                font-size: 1rem;
+            }
+
+            .exhibit-link {
+                margin-left: 0.75rem;
+            }
+        }
+    }
+}
