@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Swiper, DotLoading, Image, AutoCenter } from 'antd-mobile'
-import useFetchArt from '../../hooks/useFetchArt';
+import useSWR from 'swr';
 
 type LandingProps = {}
 type ArtWork = {
@@ -13,8 +13,8 @@ type ArtWork = {
 
 const query = '?&limit=5&fields=id,title,artist_display,date_display,image_id'
 const Landing = (props: LandingProps) => {
-    const [viewer, setViewer] = useState(false);
-    const { payload, isLoading, isError } = useFetchArt({queryParams: query})
+    const [viewer, setViewer] = useState(false)
+    const { data: payload, error, isValidating } = useSWR(`${import.meta.env.VITE_API_BASE_URL}/api/v1/artworks${query}`)
     const items = payload?.data.map((a: ArtWork, i: number) => (
         <Swiper.Item key={i}>
             <section className='swiper-content-container'>
@@ -38,8 +38,9 @@ const Landing = (props: LandingProps) => {
             </section>
         </Swiper.Item>
     ))
-
-    if(isLoading || isError) return <DotLoading/>
+    
+    if(error) console.error(error)
+    if(isValidating) return <DotLoading className='loading'/>
     return <Swiper>{items}</Swiper>
 }
 

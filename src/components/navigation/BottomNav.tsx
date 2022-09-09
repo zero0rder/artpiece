@@ -9,8 +9,8 @@ const tabs = [
       icon: <AppOutline />,
     },
     {
-      key: '/collections',
-      title: 'Collections',
+      key: '/exhibitions',
+      title: 'Exhibitions',
       icon: <UnorderedListOutline />,
     },
     {
