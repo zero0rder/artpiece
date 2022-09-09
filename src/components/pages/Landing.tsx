@@ -21,7 +21,7 @@ const Landing = (props: LandingProps) => {
                 <Image 
                 src={`${import.meta.env.VITE_API_IMAGE_URL}/${a.image_id}/full/843,/0/default.jpg`} 
                 alt={a.title}
-                height='350px'
+                height='375px'
                 fit='contain'
                 onClick={() => setViewer(prev => !prev)}
                 placeholder={<DotLoading/>}/>
