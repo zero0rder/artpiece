@@ -7,3 +7,11 @@ body,
 body {
     margin: 0;
 }
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    font-size: 2rem;
+}
