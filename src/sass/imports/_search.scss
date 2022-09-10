@@ -1,19 +1,11 @@
 .search-page {
-    height: 79%;
-    
-    .adm-list-header {
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-        font-size: 1.25rem;
-        color: #000;
-    }
+    height: 100%;
     
     .adm-list-item {
         margin-bottom: 0.5rem;
 
-        .adm-list-item-description {
-            font-size: 1rem;
+        .adm-list-item-content-main {
+            font-size: 1.15rem;
         }
     }
-    
 }

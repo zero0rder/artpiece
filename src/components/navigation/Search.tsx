@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 import { useNavigate, useLocation } from 'react-router-dom'
-import { ErrorBlock, SearchBar, List, DotLoading, Image, Loading } from "antd-mobile"
+import { ErrorBlock, SearchBar, DotLoading, Image, Collapse } from "antd-mobile"
 
 type QueryType = {
     query: string;
@@ -11,34 +11,33 @@ function SearchPage() {
     const { query } = location.state ? location.state as QueryType : { query: null }
     const { data: payload, error, isValidating } = useSWR(query ? `${import.meta.env.VITE_API_BASE_URL}/api/v1/artworks/search?q=${query}` : null)
 
-    if(error) console.error(error)
-    if(isValidating) return <DotLoading />
+    if(error) return <ResultsErrorBlock/>
+    if(isValidating) return <DotLoading className='loading'/>
 
     return (  
         <section className='search-page'>
-            <List mode='card' header={ query ? `Results for ${ query }:` : '' }>
-                {
-                    query ? payload?.data?.map((r: any, i: number) => (
-                        <List.Item 
-                            key={i} 
-                            prefix={ <Image
-                            src={r?.thumnbnail?.lqip} 
-                            fit='cover' 
-                            width={40} 
-                            height={40}
-                            alt={r?.thumnbnail?.alt_text}/>}
-                            description={r?.title}
-                            onClick={(e) => console.log('result:click', e)}/>
-                    )) : <NoResultsBlock/>
-                }
-            </List>
+            {
+                query ? payload?.data?.map((r: any, i: number) => (
+                    <Collapse defaultActiveKey={['1']}>
+                        <Collapse.Panel key={`[${i}]`} title={r?.title}>
+                            <Image
+                                src={r?.thumbnail?.lqip} 
+                                fit='cover' 
+                                width={45} 
+                                height={45}
+                                alt={r?.thumbnail?.alt_text}/>
+                            <p>{r?.thumbnail?.alt_text}</p>
+                        </Collapse.Panel>
+                    </Collapse>
+                )) : <NoResultsBlock/>
+            }
         </section>
     )
 }
 
 export default SearchPage
 
-const ResultsErrorBlock = () => <ErrorBlock status='disconnected' title='Search Error!'/>
+const ResultsErrorBlock = () => <ErrorBlock fullPage status='busy' title='Search Error!' description='Please restart your search...'/>
 const NoResultsBlock = () => <ErrorBlock fullPage status='empty' title='No Results!' description='Please start your search...' />
 
 export const Search = () => {
@@ -49,7 +48,7 @@ export const Search = () => {
 
     return <SearchBar 
             placeholder='Search...' 
-            onSearch={(e) => handleSearch(e)} 
+            onSearch={(e) => handleSearch(e)}
             style={{ '--height': '40px', margin: '1rem' }}/>
     
 }
