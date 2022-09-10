@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import { TabBar } from "antd-mobile"
-import { AppOutline, UnorderedListOutline, SearchOutline, MessageOutline } from 'antd-mobile-icons'
+import { AppOutline, UnorderedListOutline, SearchOutline, BellOutline } from 'antd-mobile-icons'
 
 const tabs = [
     {
@@ -19,9 +19,9 @@ const tabs = [
       icon: <SearchOutline />,
     },
     {
-      key: '',
-      title: 'Chat',
-      icon: <MessageOutline />,
+      key: '/alerts',
+      title: 'Alerts',
+      icon: <BellOutline />,
     },
 ]
 

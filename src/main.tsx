@@ -7,10 +7,10 @@ import Landing from './components/pages/Landing';
 import SearchPage from './components/navigation/Search';
 import Details from './components/pages/Details';
 import Exhibitions from './components/pages/Exhibitions';
+import Alerts from './components/pages/Alerts';
 import './sass/site.scss'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -24,6 +24,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path='/exhibitions' element={<Exhibitions/>}/>
           <Route path='/detail/:id' element={<Details/>}/>
           <Route path='/search' element={<SearchPage/>}/>
+          <Route path='/alerts' element={<Alerts/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
