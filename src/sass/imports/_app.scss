@@ -1,3 +1,8 @@
 .app {
     height: 100%;
+
+    .outlet-container {
+        height: 79%;
+        overflow: auto;
+    }
 }

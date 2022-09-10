@@ -1,5 +1,5 @@
 .adm-swiper {
-    height: 79%;
+    height: 100%;
 
     .adm-auto-center {
         margin: 0.75rem 0;
@@ -11,12 +11,17 @@
     }
 
     .artist-title, 
-    .artist-name {
+    .artist-name,
+    .artist-date {
         text-align: center;
         padding: 0 1rem;
     }
 
     .artist-date {
         font-style: italic;
+    }
+
+    .adm-swiper-indicator {
+        bottom: 1rem;
     }
 }

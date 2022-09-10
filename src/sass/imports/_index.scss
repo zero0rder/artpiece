@@ -15,3 +15,11 @@ body {
     height: 70%;
     font-size: 2rem;
 }
+
+.adm-error-block-full-page {
+    padding-top: calc(50vh - 300px) !important;
+
+    .adm-error-block-description-title {
+        font-weight: 600;
+    }
+}

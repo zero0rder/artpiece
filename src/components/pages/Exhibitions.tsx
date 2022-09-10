@@ -38,9 +38,9 @@ const Exhibitions = (props: ExhibitionProps) => {
                     style={{ borderRadius: 8 }}
                 />
                 <h2>{ e.title }</h2>
-                <div>at { e.gallery_title }<a className='exhibit-link' href={ e.web_url }>Website</a></div>
+                <div>at { e.gallery_title ?? 'N/A' }<a className='exhibit-link' href={ e.web_url }>Website</a></div>
                 <p>{ e.short_description ?? 'No description.'}</p>
-                <b>Status: { e.status}</b>
+                <b>Status: { e.status }</b>
             </div>
         </Card>
     ))
